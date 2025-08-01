@@ -146,11 +146,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // Handle form submission
         console.log("Requesting catalog for:", email);
         submitBtn.textContent = "Sent!";
-        submitBtn.style.background = "#10b981";
+        submitBtn.style.background = "#4f46e5";
 
         setTimeout(() => {
           submitBtn.textContent = "Request Catalogue";
-          submitBtn.style.background = "#4f46e5";
+          submitBtn.style.background = "#2d388a";
           emailInput.value = "";
         }, 2000);
       } else {
