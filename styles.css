@@ -2,7 +2,7 @@
 .features-section {
   width: 100%;
   background:  url('assets/images/Hero bg Texture.png') repeat;
-  padding: 80px 0 40px 0;
+  padding: 100px;
 }
 .features-container {
   max-width: 1240px;
@@ -71,7 +71,7 @@
 }
 .features-action {
   text-align: center;
-  margin-top: 24px;
+  margin-top: 80px;
 }
 
 @media (max-width: 900px) {
@@ -224,7 +224,7 @@ body {
   color: #222;
 }
 .container {
-  max-width: 1240px;
+  /* max-width: 1240px; */
   margin: 0 auto;
   width: 100%;
 }
@@ -311,6 +311,57 @@ body {
     display:flex;
     align-items:center;
     justify-content: center;
+}
+.dropdown-icon {
+  width: 12px;
+  height: 12px;
+  margin-left: 8px;
+  transition: transform 0.2s;
+}
+.dropdown {
+  position: relative;
+}
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: #fff;
+  border: 1px solid #e1e3e8;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  min-width: max-content;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+  z-index: 1000;
+}
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.dropdown:hover .dropdown-icon {
+  transform: rotate(180deg);
+}
+.dropdown-menu a {
+  display: block;
+  padding: 12px 16px;
+  color: #222;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+  border-bottom: 1px solid #f1f3f4;
+  gap: 0;
+  justify-content: flex-start;
+}
+.dropdown-menu a:last-child {
+  border-bottom: none;
+}
+.dropdown-menu a:hover {
+  background: #f8f9fa;
+  color: #2d388a;
 }
 .btn-contact {
   background: #2d388a;
@@ -728,5 +779,599 @@ border: #E1E3E8 1px solid;
   }
   .trusted-logos .logos {
     gap: 12px;
+  }
+}
+
+/* FAQ Section */
+.faq-section {
+    width: 100%;
+  background:  url('assets/images/Hero bg Texture.png') repeat;
+  padding: 80px 0 40px 0;
+  border-top: rgba(225, 227, 232, 1) 1px solid;
+}
+ .faq-heading .highlight{
+  color:rgba(43, 57, 144, 1) ;
+ }
+.faq-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 100px;
+}
+
+.faq-heading {
+  font-family: 'Urbanist', 'Inter', Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1a1a1a;
+  text-align: left;
+  margin-bottom: 48px;
+}
+
+.faq-list {
+  margin-bottom: 80px;
+}
+
+.faq-item {
+  border-bottom: 1px solid #e5e7eb;
+  background-color: white;
+  margin-bottom: 36px;
+  padding: 0px 20px;
+  border: rgba(225, 227, 232, 1) 1px solid;
+  border-radius: 12px;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  background: none;
+  border: none;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #1a1a1a;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+  color: #4f46e5;
+}
+
+.faq-question span {
+  flex: 1;
+  padding-right: 24px;
+}
+
+.faq-arrow {
+  padding: 3px;
+  border-radius: 40px;
+  background: rgba(241, 242, 243, 1);
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+.faq-arrow:hover {
+
+  background: rgba(255, 241, 242, 1);
+  cursor: pointer;
+}
+.faq-question[aria-expanded="true"] .faq-arrow {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0;
+}
+
+.faq-answer.active {
+  max-height: 200px;
+  padding-bottom: 24px;
+}
+
+.faq-answer p {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #6b7280;
+  margin: 0;
+}
+
+.catalog-request {
+  background: rgba(247, 248, 249, 1);
+  border: rgba(225, 227, 232, 1) 1px solid;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 48px;
+}
+
+.catalog-content h3 {
+  font-family: 'Vert Grotesk Display', 'Inter', Arial, sans-serif;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 120%;
+  color: rgba(13, 13, 13, 1);
+  margin: 0 0 8px 0;
+}
+
+.catalog-content p {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.catalog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 400px;
+}
+
+.catalog-email-input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #374151;
+  background: #ffffff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.catalog-email-input::placeholder {
+  color: rgba(149, 155, 164, 1);
+  opacity: 1; /* Ensure placeholder is fully opaque */
+  font-size: 14px;
+}
+
+.catalog-email-input:focus {
+  outline: none;
+}
+
+.catalog-email-input::placeholder {
+  color: #9ca3af;
+}
+
+.catalog-submit-btn:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+}
+
+.catalog-submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .faq-section {
+    padding: 60px 0;
+  }
+
+  .faq-heading {
+    font-size: 40px;
+    margin-bottom: 40px;
+  }
+
+  .catalog-request {
+    padding: 40px;
+    gap: 32px;
+  }
+
+  .catalog-content h3 {
+    font-size: 24px;
+  }
+
+  .catalog-form {
+    min-width: 320px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 40px 0;
+  }
+
+  .faq-container {
+    padding: 0 16px;
+  }
+
+  .faq-heading {
+    font-size: 32px;
+    margin-bottom: 32px;
+  }
+
+  .faq-list {
+    margin-bottom: 48px;
+  }
+
+  .faq-question {
+    font-size: 16px;
+    padding: 20px 0;
+  }
+
+  .faq-question span {
+    padding-right: 16px;
+  }
+
+  .faq-arrow {
+    width: 20px;
+    height: 20px;
+  }
+
+  .faq-answer p {
+    font-size: 14px;
+  }
+
+  .catalog-request {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 32px 24px;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .catalog-content h3 {
+    font-size: 22px;
+  }
+
+  .catalog-content p {
+    font-size: 14px;
+  }
+
+  .catalog-form {
+    flex-direction: column;
+    min-width: auto;
+    gap: 12px;
+  }
+
+  .catalog-email-input {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .catalog-submit-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .faq-heading {
+    font-size: 28px;
+  }
+
+  .faq-question {
+    font-size: 15px;
+  }
+
+  .catalog-request {
+    padding: 24px 16px;
+  }
+
+  .catalog-content h3 {
+    font-size: 20px;
+  }
+}
+
+/* Applications Carousel Section */
+.applications-section {
+  width: 100%;
+  background: url('assets/images/Hero bg Texture.png') repeat;
+  border-top: rgba(225, 227, 232, 1) 1px solid;
+  padding: 100px 0;
+}
+
+.applications-container {
+  margin: 0 auto;
+}
+
+.applications-header {
+  padding: 0 100px;
+  margin: auto;
+   max-width: 1240px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 60px;
+  gap: 20px;
+}
+
+.applications-content {
+  flex: 1;
+}
+
+.applications-heading {
+  font-family: 'Urbanist', 'Inter', Arial, sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1a1a1a;
+  margin: 0 0 16px 0;
+  width: 80%;
+}
+
+.applications-subheading {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 160%;
+  color: #6b7280;
+  margin: 0;
+  width: 70%;
+}
+
+.applications-controls {
+  display: flex;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.applications-arrow {
+  width: 68px;
+  height: 68px;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.applications-arrow:hover:not(:disabled) {
+  border-color: #4f46e5;
+  background: #f8fafc;
+}
+
+.applications-arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: #e5e7eb;
+  background: #f9fafb;
+}
+
+.applications-arrow img {
+  width: 20px;
+  height: 20px;
+  opacity: 1;
+}
+
+.applications-arrow:disabled img {
+  opacity: 0.5;
+}
+
+.applications-carousel-wrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  padding: 0 100px;
+}
+
+.applications-carousel {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.application-card {
+  flex: 0 0 420px;
+  height: 420px;
+  background: #ffffff;
+  border-radius:32px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.application-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.application-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.application-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.application-card:hover .application-image img {
+  transform: scale(1.05);
+}
+
+.application-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.579217) 40.23%, rgba(0, 0, 0, 0.8) 75.96%);
+  padding: 40px 24px 24px 24px;
+  color: white;
+}
+
+.application-title {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+}
+
+.application-desc {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .applications-section {
+    padding: 60px 0;
+  }
+
+  .applications-header {
+    padding: 0 60px;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  .applications-carousel-wrapper {
+    padding: 0 60px;
+  }
+
+  .application-card {
+    flex: 0 0 260px;
+    height: 300px;
+  }
+
+  .applications-carousel {
+    gap: 16px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .applications-section {
+    padding: 40px 0;
+  }
+
+  .applications-header {
+    padding: 0 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .applications-carousel-wrapper {
+    padding: 0 16px;
+  }
+
+  .applications-heading {
+    font-size: 32px;
+  }
+
+  .applications-subheading {
+    font-size: 14px;
+    max-width: none;
+  }
+
+  .applications-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .applications-arrow img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .application-card {
+    flex: 0 0 240px;
+    height: 280px;
+  }
+
+  .applications-carousel {
+    gap: 16px;
+  }
+
+  .application-overlay {
+    padding: 30px 20px 20px 20px;
+  }
+
+  .application-title {
+    font-size: 18px;
+  }
+
+  .application-desc {
+    font-size: 13px;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .applications-heading {
+    font-size: 28px;
+  }
+
+  .application-card {
+    flex: 0 0 220px;
+    height: 260px;
+  }
+
+  .applications-carousel {
+    gap: 12px;
+  }
+
+  .application-overlay {
+    padding: 24px 16px 16px 16px;
+  }
+
+  .application-title {
+    font-size: 16px;
+  }
+
+  .application-desc {
+    font-size: 12px;
+  }
+}
+
+/* Smooth scrolling for touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .applications-carousel-wrapper {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .applications-carousel-wrapper::-webkit-scrollbar {
+    display: none;
   }
 }

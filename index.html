@@ -5,15 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mangalam HDPE Pipes</title>
   <!-- Google Fonts: Urbanist & Inter -->
-  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;700&family=Inter:wght@400;500;700&family=Vert+Grotesk+Display:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="assets/images/Logo.png" type="image/x-icon">
 </head>
 <body>
   <!-- Sticky Header (appears on scroll) -->
   <header id="sticky-header" class="sticky-header" aria-label="Sticky Header">
-    <div class="container">
-      <span>Sticky Header Content</span>
-    </div>
+    <nav class="navbar" aria-label="Main Navigation">
+      <div class="container navbar-content">
+        <a href="#" class="logo" aria-label="Mangalam HDPE Pipes">
+          <img src="assets/images/Logo.png" alt="Mangalam HDPE Pipes Logo">
+        </a>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About Us</a></li>
+            <li class="dropdown">
+              <a href="#products" aria-haspopup="true" aria-expanded="false">Products <img src="/assets/svgs/Dropdown.svg" alt="dropdown" class="dropdown-icon"></a>
+              <div class="dropdown-menu">
+                <a href="#hdpe-pipes">HDPE Pipes</a>
+                <a href="#coils">HDPE Coils</a>
+                <a href="#fittings">Pipe Fittings</a>
+                <a href="#accessories">Accessories</a>
+              </div>
+            </li>
+          </ul>
+          <a href="#contact" class="btn-primary">Contact Us</a>
+        </div>
+      </div>
+    </nav>
   </header>
 
   <!-- Main Navigation Bar -->
@@ -23,14 +43,19 @@
         <img src="assets/images/Logo.png" alt="Mangalam HDPE Pipes Logo">
       </a>
       <div class="nav-links-container">
-      <ul class="nav-links">
-        <li><a href="#about">About Us</a></li>
-        <li class="dropdown">
-          <a href="#products" aria-haspopup="true" aria-expanded="false">Products <img src="/assets/svgs/Dropdown.svg"></a>
-          <!-- Dropdown menu can be added here if needed -->
-        </li>
-      </ul>
-      <a href="#contact" class="btn-primary">Contact Us</a>
+        <ul class="nav-links">
+          <li><a href="#about">About Us</a></li>
+          <li class="dropdown">
+            <a href="#products" aria-haspopup="true" aria-expanded="false">Products <img src="/assets/svgs/Dropdown.svg" alt="dropdown" class="dropdown-icon"></a>
+            <div class="dropdown-menu">
+              <a href="#hdpe-pipes">HDPE Pipes</a>
+              <a href="#coils">HDPE Coils</a>
+              <a href="#fittings">Pipe Fittings</a>
+              <a href="#accessories">Accessories</a>
+            </div>
+          </li>
+        </ul>
+        <a href="#contact" class="btn-primary">Contact Us</a>
       </div>
     </div>
   </nav>
@@ -180,8 +205,164 @@
         </div>
       </div>
     </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" aria-label="Frequently Asked Questions">
+      <div class="container faq-container">
+        <h2 class="faq-heading"> <span class="highlight">Frequently</span> Asked Questions</h2>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What is the purpose of a laser cutter for sheet metal?</span>
+              <img src="assets/svgs/Dropdown.svg" alt="Expand" class="faq-arrow">
+            </button>
+            <div class="faq-answer">
+              <p>It is designed to cut various types of sheet metal with precision, allowing for intricate designs and shapes that are essential in manufacturing processes.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What are the benefits of using aluminum tubing in manufacturing?</span>
+              <img src="assets/svgs/Dropdown.svg" alt="Expand" class="faq-arrow">
+            </button>
+            <div class="faq-answer">
+              <p>Aluminum tubing offers excellent corrosion resistance, lightweight properties, high strength-to-weight ratio, and excellent thermal conductivity, making it ideal for various industrial applications.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How is aluminum tubing produced?</span>
+              <img src="assets/svgs/Dropdown.svg" alt="Expand" class="faq-arrow">
+            </button>
+            <div class="faq-answer">
+              <p>Aluminum tubing is typically produced through extrusion processes, where heated aluminum is forced through a die to create the desired shape and dimensions.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What are the common applications of aluminum tubing?</span>
+              <img src="assets/svgs/Dropdown.svg" alt="Expand" class="faq-arrow">
+            </button>
+            <div class="faq-answer">
+              <p>Common applications include automotive components, aerospace structures, construction frameworks, heat exchangers, and industrial machinery.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can aluminum tubing be customized?</span>
+              <img src="assets/svgs/Dropdown.svg" alt="Expand" class="faq-arrow">
+            </button>
+            <div class="faq-answer">
+              <p>Yes, aluminum tubing can be customized in terms of dimensions, wall thickness, surface finish, and alloy composition to meet specific application requirements.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="catalog-request">
+          <div class="catalog-content">
+            <h3>Want us to email the entire catalogue?</h3>
+            <p>Enter your email and an expert will share the catalogue with you.</p>
+          </div>
+          <div class="catalog-form">
+            <input type="email" placeholder="Email Address" class="catalog-email-input">
+            <button class="catalog-submit-btn btn-primary">Request Catalogue</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Applications Carousel Section -->
+    <section class="applications-section" aria-label="Versatile Applications">
+      <div class="container applications-container">
+        <div class="applications-header">
+          <div class="applications-content">
+            <h2 class="applications-heading">Versatile Applications Across Industries</h2>
+            <p class="applications-subheading">From technical textiles to packaging materials, our precision-engineered machinery delivers superior performance across diverse applications.</p>
+          </div>
+          <div class="applications-controls">
+            <button class="applications-arrow prev" aria-label="Previous applications">
+              <img src="assets/svgs/Arrow Left.svg" alt="Previous">
+            </button>
+            <button class="applications-arrow next" aria-label="Next applications">
+              <img src="assets/svgs/Arrow right.svg" alt="Next">
+            </button>
+          </div>
+        </div>
+
+        <div class="applications-carousel-wrapper">
+          <div class="applications-carousel">
+            <div class="application-card">
+              <div class="application-image">
+                <img src="assets/images/hero-main.jpg" alt="Fishnet Manufacturing">
+                <div class="application-overlay">
+                  <h3 class="application-title">Fishnet Manufacturing</h3>
+                  <p class="application-desc">High-performance twisting solutions for packaging yarn, strengthening materials, and reinforcement threads used in modern packaging applications.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="application-card">
+              <div class="application-image">
+                <img src="assets/images/hero-main.jpg" alt="Packaging Solutions">
+                <div class="application-overlay">
+                  <h3 class="application-title">Packaging Solutions</h3>
+                  <p class="application-desc">Advanced machinery for creating high-quality packaging materials with superior strength and durability for industrial applications.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="application-card">
+              <div class="application-image">
+                <img src="assets/images/hero-main.jpg" alt="Technical Textiles">
+                <div class="application-overlay">
+                  <h3 class="application-title">Technical Textiles</h3>
+                  <p class="application-desc">Precision engineering for technical textile production, delivering consistent quality and performance across various industrial sectors.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="application-card">
+              <div class="application-image">
+                <img src="assets/images/hero-main.jpg" alt="Industrial Applications">
+                <div class="application-overlay">
+                  <h3 class="application-title">Industrial Applications</h3>
+                  <p class="application-desc">Versatile solutions for diverse industrial needs, from heavy-duty manufacturing to specialized production requirements.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="application-card">
+              <div class="application-image">
+                <img src="assets/images/hero-main.jpg" alt="Rope Manufacturing">
+                <div class="application-overlay">
+                  <h3 class="application-title">Rope Manufacturing</h3>
+                  <p class="application-desc">Specialized equipment for producing high-quality ropes and cordage with consistent strength and reliability for marine and industrial use.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="application-card">
+              <div class="application-image">
+                <img src="assets/images/hero-main.jpg" alt="Agricultural Solutions">
+                <div class="application-overlay">
+                  <h3 class="application-title">Agricultural Solutions</h3>
+                  <p class="application-desc">Advanced machinery for agricultural packaging and processing, ensuring optimal protection and handling of agricultural products.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
   </main>
 
   <script src="script.js"></script>
 </body>
 </html>
+
