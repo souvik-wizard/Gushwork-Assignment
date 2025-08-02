@@ -42,6 +42,14 @@
       <a href="#" class="logo" aria-label="Mangalam HDPE Pipes">
         <img src="assets/images/Logo.png" alt="Mangalam HDPE Pipes Logo">
       </a>
+      
+      <!-- Hamburger menu button -->
+      <div class="hamburger-toggle" aria-label="Toggle mobile menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
       <div class="nav-links-container">
         <ul class="nav-links">
           <li><a href="#about">About Us</a></li>
@@ -60,6 +68,37 @@
     </div>
   </nav>
 
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-nav-overlay"></div>
+  <div class="mobile-nav-menu">
+    <button class="mobile-nav-close" aria-label="Close mobile menu">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+</svg>
+
+    </button>
+    <div class="mobile-nav-header">
+      <a href="#" class="mobile-nav-logo">
+        <img src="assets/images/Logo.png" alt="Mangalam HDPE Pipes Logo">
+      </a>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="#about">About Us</a></li>
+      <li class="mobile-dropdown">
+        <button class="mobile-dropdown-toggle">
+          Products <img src="/assets/svgs/Dropdown.svg" alt="dropdown">
+        </button>
+        <div class="mobile-dropdown-menu">
+          <a href="#hdpe-pipes">HDPE Pipes</a>
+          <a href="#coils">HDPE Coils</a>
+          <a href="#fittings">Pipe Fittings</a>
+          <a href="#accessories">Accessories</a>
+        </div>
+      </li>
+    </ul>
+    <a href="#contact" class="btn-primary mobile-nav-btn">Contact Us</a>
+  </div>
+
   <main>
       <!-- Hero Section -->
     <section class="hero" aria-label="Product Hero">
@@ -69,10 +108,17 @@
       <div class="container hero-content">
         <div class="hero-gallery">
           <div class="hero-carousel">
-            <button class="carousel-arrow left" aria-label="Previous image"><img src="assets/svgs/Arrow Left.svg" alt="Previous"></button>
+          <button class="carousel-arrow left" aria-label="Previous image">
+            <img src="assets/svgs/Arrow Left.svg" alt="Previous">
+          </button>
+          <div class="carousel-image-container">
             <img src="assets/images/hero-main.jpg" alt="Product in use" class="carousel-image">
-            <button class="carousel-arrow right" aria-label="Next image"><img src="assets/svgs/Arrow right.svg" alt="Next"></button>
+            <div class="zoom-preview"></div>
           </div>
+          <button class="carousel-arrow right" aria-label="Next image">
+            <img src="assets/svgs/Arrow right.svg" alt="Next">
+          </button>
+        </div>
           <div class="carousel-thumbnails">
             <img src="assets/images/hero-main.jpg" alt="Thumbnail 1" class="thumbnail">
             <img src="assets/images/hero-main.jpg" alt="Thumbnail 2" class="thumbnail">
@@ -95,6 +141,27 @@
             <div class="hero-feature-lists"><img src="/assets/svgs/CheckCircle.svg" alt="Check">Flexible Installation</div>
             <div class="hero-feature-lists"><img src="/assets/svgs/CheckCircle.svg" alt="Check">Flexible Installation</div>
           </div>
+                  <div class="hero-gallery-mobile">
+          <div class="hero-carousel">
+          <button class="carousel-arrow left" aria-label="Previous image">
+            <img src="assets/svgs/Arrow Left.svg" alt="Previous">
+          </button>
+          <div class="carousel-image-container">
+            <img src="assets/images/hero-main.jpg" alt="Product in use" class="carousel-image">
+            <div class="zoom-preview"></div>
+          </div>
+          <button class="carousel-arrow right" aria-label="Next image">
+            <img src="assets/svgs/Arrow right.svg" alt="Next">
+          </button>
+        </div>
+          <div class="carousel-thumbnails">
+            <img src="assets/images/hero-main.jpg" alt="Thumbnail 1" class="thumbnail">
+            <img src="assets/images/hero-main.jpg" alt="Thumbnail 2" class="thumbnail">
+            <img src="assets/images/hero-main.jpg" alt="Thumbnail 3" class="thumbnail">
+            <img src="assets/images/hero-main.jpg" alt="Thumbnail 4" class="thumbnail">
+            <img src="assets/images/hero-main.jpg" alt="Thumbnail 5" class="thumbnail">
+          </div>
+        </div>
           <div class="price-card">
             <div class="price-range">
               <span class="price-label">Price Range</span>
@@ -112,18 +179,20 @@
           </div>
         </div>
       </div>
-      <div class="trusted-logos">
-        <span>Trusted by Hundreds of Companies Globally</span>
-        <div class="logos-carousel-wrapper">
-          <div class="logos-carousel">
-            <img src="assets/images/euroflexLogo.png" alt="Euroflex Logo">
-            <img src="assets/images/euroflexLogo.png" alt="Euroflex Logo">
-            <img src="assets/images/euroflexLogo.png" alt="Euroflex Logo">
-            <img src="assets/images/euroflexLogo.png" alt="Euroflex Logo">
-            <img src="assets/images/euroflexLogo.png" alt="Euroflex Logo">
-            <img src="assets/images/euroflexLogo.png" alt="Euroflex Logo">
-            <img src="assets/images/euroflexLogo.png" alt="Euroflex Logo">
-          </div>
+    </section>
+
+    <!-- Trusted Logos Section -->
+    <section class="trusted-logos">
+      <span>Trusted by Hundreds of Companies Globally</span>
+      <div class="logos-carousel-wrapper">
+        <div class="logos-carousel">
+          <img src="assets/images/euroflexLogo.png" alt="Euroflex Logo">
+          <img src="assets/images/euroflexLogo.png" alt="Euroflex Logo">
+          <img src="assets/images/euroflexLogo.png" alt="Euroflex Logo">
+          <img src="assets/images/euroflexLogo.png" alt="Euroflex Logo">
+          <img src="assets/images/euroflexLogo.png" alt="Euroflex Logo">
+          <img src="assets/images/euroflexLogo.png" alt="Euroflex Logo">
+          <img src="assets/images/euroflexLogo.png" alt="Euroflex Logo">
         </div>
       </div>
     </section>
@@ -166,7 +235,7 @@
         <!-- Features Section -->
     <section class="features-section" aria-label="Built to Last">
       <div class="container features-container">
-        <h2 class="features-heading" style="font-family: 'Urbanist', 'Inter', Arial, sans-serif;">Built to Last. Engineered to Perform.</h2>
+        <h2 class="features-heading" >Built to Last. Engineered to Perform.</h2>
         <p class="features-subheading">From bulk bags to technical threads, Meera delivers precision solutions for every stage of your packaging process.</p>
         <div class="features-grid">
           <div class="feature-card">
@@ -216,6 +285,7 @@
             <button class="faq-question" aria-expanded="false">
               <span>What is the purpose of a laser cutter for sheet metal?</span>
               <img src="assets/svgs/Dropdown.svg" alt="Expand" class="faq-arrow">
+ 
             </button>
             <div class="faq-answer">
               <p>It is designed to cut various types of sheet metal with precision, allowing for intricate designs and shapes that are essential in manufacturing processes.</p>
@@ -370,7 +440,7 @@
 
         <div class="process-content">
           <div class="process-tabs">
-            <img src="assets/svgs/Line.svg" alt="Process" class="process-line">
+            <img src="assets/svgs/ProcessLine.svg" alt="Process" class="process-line">
             <button class="process-tab active" data-tab="raw-material">Raw Material</button>
             <button class="process-tab" data-tab="extrusion">Extrusion</button>
             <button class="process-tab" data-tab="cooling">Cooling</button>

@@ -684,3 +684,147 @@ document.addEventListener("DOMContentLoaded", function () {
     startAutoSlide();
   }
 });
+
+// Image Zoom Functionality for Carousel
+document.addEventListener("DOMContentLoaded", function () {
+  const carouselImageContainer = document.querySelector(
+    ".carousel-image-container"
+  );
+  const carouselImage = document.querySelector(".carousel-image");
+  const zoomPreview = document.querySelector(".zoom-preview");
+  const heroGallery = document.querySelector(".hero-gallery");
+
+  if (carouselImageContainer && carouselImage && zoomPreview && heroGallery) {
+    // Move the zoom preview outside the image container
+    heroGallery.appendChild(zoomPreview);
+
+    // Add a padding around the image to detect hover near the edges
+    const padding = 20; // pixels of padding around the image
+
+    carouselImageContainer.addEventListener("mousemove", (e) => {
+      const rect = carouselImage.getBoundingClientRect();
+      const galleryRect = heroGallery.getBoundingClientRect();
+
+      // Calculate cursor position relative to image
+      let relX = e.clientX - rect.left;
+      let relY = e.clientY - rect.top;
+
+      // Convert to percentage, accounting for position outside the image
+      const xPercent = Math.max(0, Math.min(100, (relX / rect.width) * 100));
+      const yPercent = Math.max(0, Math.min(100, (relY / rect.height) * 100));
+
+      // Set background position for the zoom effect
+      zoomPreview.style.backgroundImage = `url(${carouselImage.src})`;
+      zoomPreview.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
+
+      // Position the zoom preview to the right of the image
+      // Update vertical position to be centered relative to the image container
+      const zoomPreviewHeight = zoomPreview.offsetHeight || 350; // Use default if not yet rendered
+      const verticalCenter = rect.top + rect.height / 2 - zoomPreviewHeight / 2;
+
+      zoomPreview.style.left = `${rect.right + 20}px`;
+      zoomPreview.style.top = `${verticalCenter}px`;
+      zoomPreview.style.opacity = 1;
+      zoomPreview.style.transform = "scale(1)";
+    });
+
+    // Create a larger area for hover detection
+    const isNearImage = (e) => {
+      const rect = carouselImage.getBoundingClientRect();
+      return (
+        e.clientX >= rect.left - padding &&
+        e.clientX <= rect.right + padding &&
+        e.clientY >= rect.top - padding &&
+        e.clientY <= rect.bottom + padding
+      );
+    };
+
+    // Handle mouse movement in the vicinity of the image
+    document.addEventListener("mousemove", (e) => {
+      if (isNearImage(e)) {
+        carouselImageContainer.dispatchEvent(
+          new MouseEvent("mousemove", {
+            clientX: e.clientX,
+            clientY: e.clientY,
+          })
+        );
+      } else {
+        zoomPreview.style.opacity = 0;
+        zoomPreview.style.transform = "scale(0.9)";
+      }
+    });
+
+    carouselImageContainer.addEventListener("mouseleave", () => {
+      // Small delay before hiding to allow smooth transition when moving just outside
+      setTimeout(() => {
+        if (!isNearImage(window.event)) {
+          zoomPreview.style.opacity = 0;
+          zoomPreview.style.transform = "scale(0.9)";
+        }
+      }, 50);
+    });
+  } else {
+    console.error(
+      "Zoom preview elements are missing or not properly initialized."
+    );
+  }
+});
+
+// Hamburger Menu Toggle for Mobile
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburgerToggle = document.querySelector(".hamburger-toggle");
+  const mobileNavMenu = document.querySelector(".mobile-nav-menu");
+  const mobileNavOverlay = document.querySelector(".mobile-nav-overlay");
+  const mobileNavClose = document.querySelector(".mobile-nav-close");
+
+  if (hamburgerToggle && mobileNavMenu) {
+    // Toggle menu on hamburger click
+    hamburgerToggle.addEventListener("click", function () {
+      mobileNavMenu.classList.add("active");
+      mobileNavOverlay.classList.add("active");
+      document.body.style.overflow = "hidden"; // Prevent scrolling when menu is open
+    });
+
+    // Close menu functions
+    function closeMenu() {
+      mobileNavMenu.classList.remove("active");
+      mobileNavOverlay.classList.remove("active");
+      document.body.style.overflow = ""; // Re-enable scrolling
+    }
+
+    // Close on X button click
+    if (mobileNavClose) {
+      mobileNavClose.addEventListener("click", closeMenu);
+    }
+
+    // Close on overlay click
+    if (mobileNavOverlay) {
+      mobileNavOverlay.addEventListener("click", closeMenu);
+    }
+
+    // Close on ESC key press
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        closeMenu();
+      }
+    });
+
+    // Handle mobile dropdown toggles
+    const mobileDropdownToggles = document.querySelectorAll(
+      ".mobile-dropdown-toggle"
+    );
+    mobileDropdownToggles.forEach((toggle) => {
+      toggle.addEventListener("click", function (e) {
+        e.preventDefault();
+        const dropdownContent = this.nextElementSibling;
+        this.classList.toggle("active");
+
+        if (dropdownContent.style.maxHeight) {
+          dropdownContent.style.maxHeight = null;
+        } else {
+          dropdownContent.style.maxHeight = dropdownContent.scrollHeight + "px";
+        }
+      });
+    });
+  }
+});
