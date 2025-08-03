@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
 // Sticky Header Show/Hide on Scroll
 let lastScrollY = window.scrollY;
 const stickyHeader = document.getElementById("sticky-header");
@@ -38,11 +39,6 @@ function handleScroll() {
 }
 
 window.addEventListener("scroll", handleScroll);
-
-// Accessibility: Close dropdown on outside click (if dropdown implemented)
-document.addEventListener("click", function (e) {
-  // Add dropdown logic here if needed
-});
 
 // Hero Carousel Functionality
 document.addEventListener("DOMContentLoaded", function () {
@@ -909,7 +905,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Mobile Process Navigation
 document.addEventListener("DOMContentLoaded", function () {
-  // Process steps data
   const processSteps = [
     {
       id: "raw-material",
