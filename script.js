@@ -772,66 +772,72 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Hamburger Menu Toggle for Mobile
 document.addEventListener("DOMContentLoaded", function () {
-  const hamburgerToggle = document.querySelector(".hamburger-toggle");
+  const hamburgerToggles = document.querySelectorAll(".hamburger-toggle");
   const mobileNavMenu = document.querySelector(".mobile-nav-menu");
   const mobileNavOverlay = document.querySelector(".mobile-nav-overlay");
   const mobileNavClose = document.querySelector(".mobile-nav-close");
+  const mobileDropdownToggles = document.querySelectorAll(
+    ".mobile-dropdown-toggle"
+  );
 
-  if (hamburgerToggle && mobileNavMenu) {
-    // Toggle menu on hamburger click
-    hamburgerToggle.addEventListener("click", function () {
-      mobileNavMenu.classList.add("active");
-      mobileNavOverlay.classList.add("active");
-      document.body.style.overflow = "hidden"; // Prevent scrolling when menu is open
-    });
-
-    // Close menu functions
-    function closeMenu() {
-      mobileNavMenu.classList.remove("active");
-      mobileNavOverlay.classList.remove("active");
-      document.body.style.overflow = ""; // Re-enable scrolling
-    }
-
-    // Close on X button click
-    if (mobileNavClose) {
-      mobileNavClose.addEventListener("click", closeMenu);
-    }
-
-    // Close on overlay click
-    if (mobileNavOverlay) {
-      mobileNavOverlay.addEventListener("click", closeMenu);
-    }
-
-    // Close on ESC key press
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") {
-        closeMenu();
-      }
-    });
-
-    // Handle mobile dropdown toggles
-    const mobileDropdownToggles = document.querySelectorAll(
-      ".mobile-dropdown-toggle"
-    );
-    mobileDropdownToggles.forEach((toggle) => {
-      toggle.addEventListener("click", function (e) {
-        e.preventDefault();
-        const dropdownContent = this.nextElementSibling;
-        this.classList.toggle("active");
-
-        if (dropdownContent.style.maxHeight) {
-          dropdownContent.style.maxHeight = null;
+  if (hamburgerToggles.length > 0) {
+    // Toggle menu on hamburger click (both in main nav and sticky header)
+    hamburgerToggles.forEach((toggle) => {
+      toggle.addEventListener("click", function () {
+        if (mobileNavMenu) {
+          mobileNavMenu.classList.add("active");
+          if (mobileNavOverlay) mobileNavOverlay.classList.add("active");
+          document.body.style.overflow = "hidden"; // Prevent scrolling when menu is open
         } else {
-          dropdownContent.style.maxHeight = dropdownContent.scrollHeight + "px";
+          console.error("Mobile nav menu element not found");
         }
       });
     });
+
+    // Close mobile menu
+    if (mobileNavClose) {
+      mobileNavClose.addEventListener("click", function () {
+        mobileNavMenu.classList.remove("active");
+        if (mobileNavOverlay) mobileNavOverlay.classList.remove("active");
+        document.body.style.overflow = ""; // Re-enable scrolling
+      });
+    }
+
+    // Close mobile menu when clicking outside
+    if (mobileNavOverlay) {
+      mobileNavOverlay.addEventListener("click", function () {
+        mobileNavMenu.classList.remove("active");
+        mobileNavOverlay.classList.remove("active");
+        document.body.style.overflow = ""; // Re-enable scrolling
+      });
+    }
+
+    // Handle dropdown toggles in mobile menu
+    if (mobileDropdownToggles.length > 0) {
+      mobileDropdownToggles.forEach((toggle) => {
+        toggle.addEventListener("click", function (e) {
+          e.preventDefault();
+          const dropdownContent = this.nextElementSibling;
+          this.classList.toggle("active");
+
+          if (dropdownContent.style.maxHeight) {
+            dropdownContent.style.maxHeight = null;
+          } else {
+            dropdownContent.style.maxHeight =
+              dropdownContent.scrollHeight + "px";
+          }
+        });
+      });
+    }
+  } else {
+    console.error("Hamburger toggle elements not found in the DOM");
   }
 });
 
 // Process Tab Scrolling for Mobile
 document.addEventListener("DOMContentLoaded", function () {
   const processTabs = document.querySelector(".process-tabs");
+  const processTabsArray = document.querySelectorAll(".process-tab"); // Use this for forEach
 
   if (processTabs) {
     // Scroll active tab into view on page load
@@ -867,10 +873,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const processImages = document.querySelectorAll(".process-image");
 
   function updateProcessImageForMobile() {
-    const activeTabId = document
-      .querySelector(".process-tab.active")
-      .getAttribute("data-tab");
-    const activeTabIndex = Array.from(processTabs).findIndex(
+    const activeTab = document.querySelector(".process-tab.active");
+    if (!activeTab) return;
+
+    const activeTabId = activeTab.getAttribute("data-tab");
+    const activeTabIndex = Array.from(processTabsArray).findIndex(
       (tab) => tab.getAttribute("data-tab") === activeTabId
     );
 
@@ -885,7 +892,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Update images when tab is clicked (for mobile)
-  processTabs.forEach((tab) => {
+  processTabsArray.forEach((tab) => {
+    // Use processTabsArray instead of processTabs
     tab.addEventListener("click", function () {
       if (window.innerWidth <= 1023) {
         updateProcessImageForMobile();
