@@ -1757,6 +1757,9 @@ width: max-content;
   .mobile-process-navigation{
     position: relative;
   }
+    .mobile-process-navigation img{
+    width: 80%;
+  }
   
   .mobile-process {
     display: block;
