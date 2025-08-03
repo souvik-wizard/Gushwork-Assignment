@@ -1080,3 +1080,169 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// Modal Functionality
+document.addEventListener("DOMContentLoaded", function () {
+  // Modal elements
+  const modal = document.getElementById("brochure-modal");
+  const modalOverlay = document.getElementById("brochure-modal-overlay");
+  const closeBtn = document.querySelector(".modal-close");
+  const modalForm = document.querySelector(".modal-form");
+  const downloadBtn = document.querySelector(".specs-download-btn");
+
+  if (modal && modalOverlay && closeBtn && downloadBtn) {
+    // Open modal when download button is clicked
+    downloadBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      modal.classList.add("active");
+      modalOverlay.classList.add("active");
+      document.body.style.overflow = "hidden"; // Prevent scrolling
+    });
+
+    // Close modal functions
+    function closeModal() {
+      modal.classList.remove("active");
+      modalOverlay.classList.remove("active");
+      document.body.style.overflow = ""; // Re-enable scrolling
+    }
+
+    // Close on X button click
+    closeBtn.addEventListener("click", closeModal);
+
+    // Close on overlay click
+    modalOverlay.addEventListener("click", closeModal);
+
+    // Close on ESC key press
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        closeModal();
+      }
+    });
+
+    // Handle form submission
+    if (modalForm) {
+      modalForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value.trim();
+        const contact = document.getElementById("contact").value.trim();
+
+        // Here you would typically send the data to your server
+        console.log(
+          "Form submitted with email:",
+          email,
+          "and contact:",
+          contact
+        );
+
+        // Show success state
+        const downloadBtn = modalForm.querySelector(".download-btn");
+        downloadBtn.textContent = "Downloaded!";
+        downloadBtn.style.backgroundColor = "#10B981";
+
+        // Close modal after short delay
+        setTimeout(() => {
+          closeModal();
+
+          // Reset form and button after closing
+          setTimeout(() => {
+            modalForm.reset();
+            downloadBtn.textContent = "Download Brochure";
+            downloadBtn.style.backgroundColor = "";
+          }, 300);
+        }, 1500);
+      });
+    }
+  }
+});
+
+// Quote Request Modal Functionality
+document.addEventListener("DOMContentLoaded", function () {
+  // Modal elements
+  const quoteModal = document.getElementById("quote-modal");
+  const quoteModalOverlay = document.getElementById("quote-modal-overlay");
+  const quoteCloseBtn = quoteModal
+    ? quoteModal.querySelector(".modal-close")
+    : null;
+  const quoteForm = quoteModal ? quoteModal.querySelector(".quote-form") : null;
+  const quoteRequestBtns = document.querySelectorAll(
+    'a[href="#quote"], .features-action .btn-primary'
+  );
+
+  if (
+    quoteModal &&
+    quoteModalOverlay &&
+    quoteCloseBtn &&
+    quoteRequestBtns.length > 0
+  ) {
+    // Open modal when quote buttons are clicked
+    quoteRequestBtns.forEach((btn) => {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        quoteModal.classList.add("active");
+        quoteModalOverlay.classList.add("active");
+        document.body.style.overflow = "hidden"; // Prevent scrolling
+      });
+    });
+
+    // Close modal functions
+    function closeQuoteModal() {
+      quoteModal.classList.remove("active");
+      quoteModalOverlay.classList.remove("active");
+      document.body.style.overflow = ""; // Re-enable scrolling
+    }
+
+    // Close on X button click
+    quoteCloseBtn.addEventListener("click", closeQuoteModal);
+
+    // Close on overlay click
+    quoteModalOverlay.addEventListener("click", closeQuoteModal);
+
+    // Close on ESC key press
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && quoteModal.classList.contains("active")) {
+        closeQuoteModal();
+      }
+    });
+
+    // Handle form submission
+    if (quoteForm) {
+      quoteForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const fullName = document.getElementById("fullName").value.trim();
+        const companyName = document.getElementById("companyName").value.trim();
+        const emailAddress = document
+          .getElementById("emailAddress")
+          .value.trim();
+        const countryCode = document.getElementById("countryCode").value;
+        const phoneNumber = document.getElementById("phoneNumber").value.trim();
+
+        // Here you would typically send the data to your server
+        console.log("Quote form submitted:", {
+          fullName,
+          companyName,
+          emailAddress,
+          phone: countryCode + phoneNumber,
+        });
+
+        // Show success state
+        const submitBtn = quoteForm.querySelector(".submit-btn");
+        submitBtn.textContent = "Request Submitted!";
+        submitBtn.style.backgroundColor = "#10B981";
+
+        // Close modal after short delay
+        setTimeout(() => {
+          closeQuoteModal();
+
+          // Reset form and button after closing
+          setTimeout(() => {
+            quoteForm.reset();
+            submitBtn.textContent = "Submit Form";
+            submitBtn.style.backgroundColor = "";
+          }, 300);
+        }, 1500);
+      });
+    }
+  }
+});

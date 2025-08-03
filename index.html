@@ -179,7 +179,7 @@
             <div class="certifications">Certifications: ISO Certified, BIS Certified</div>
           </div>
           <div class="hero-actions">
-            <a href="#quote" class="btn-primary">Get Custom Quote</a>
+            <a href="#" class="btn-primary">Get Custom Quote</a>
             <a href="#specs" class="btn-secondary">View Technical Specs  <img src="assets/svgs/breadcrumb-separator.svg" alt=">" class="separator-icon"></a>
           </div>
         </div>
@@ -948,5 +948,76 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- Download Brochure Modal -->
+  <div class="modal-overlay" id="brochure-modal-overlay"></div>
+  <div class="modal" id="brochure-modal">
+    <div class="modal-header">
+      <h3 class="modal-title">Let us email the entire catalogue to you</h3>
+      <button class="modal-close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <form class="modal-form">
+      <div class="form-group">
+        <label for="email">Your Email <span class="required">*</span></label>
+        <input type="email" id="email" placeholder="example@gmail.com" required>
+      </div>
+      <div class="form-group">
+        <label for="contact">Your Contact (Optional)</label>
+        <input type="tel" id="contact" placeholder="+91-0000000000">
+      </div>
+      <div class="download-btn-wrapper">        
+        <button type="submit" class="btn-primary download-btn">Download Brochure</button>
+      </div>
+    </form>
+  </div>
+  
+  <!-- Quote Request Modal -->
+  <div class="modal-overlay" id="quote-modal-overlay"></div>
+  <div class="modal" id="quote-modal">
+    <div class="modal-header">
+      <h3 class="modal-title">Request a call back</h3>
+      <button class="modal-close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <form class="modal-form quote-form">
+      <div class="form-group">
+        <input type="text" id="fullName" placeholder="Full Name" required>
+      </div>
+      <div class="form-group">
+        <input type="text" id="companyName" placeholder="Company Name" required>
+      </div>
+      <div class="form-group">
+        <input type="email" id="emailAddress" placeholder="Email Address" required>
+      </div>
+      <div class="form-group phone-input-container">
+        <div class="country-code-wrapper">
+          <select class="country-code" id="countryCode">
+            <option value="+91">+91</option>
+            <option value="+1">+1</option>
+            <option value="+44">+44</option>
+            <option value="+86">+86</option>
+          </select>
+          <div class="code-dropdown-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
+        <input type="tel" id="phoneNumber" placeholder="7003026616" required>
+      </div>
+      <div class="form-btn-wrapper">
+        <button type="submit" class="btn-primary submit-btn">Submit Form</button>
+      </div>
+    </form>
+  </div>
 </body>
 </html>

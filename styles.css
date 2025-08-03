@@ -2799,7 +2799,7 @@ width: max-content;
   flex: 1;
   color: #ffffff;
   position: relative;
-  z-index: 2;
+   z-index: 2;
 }
 
 .cta-heading {
@@ -3521,5 +3521,284 @@ width: max-content;
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
+  }
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: none;
+    background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  display: none;
+  /* Add blur effect */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px); /* Safari support */
+  transition: backdrop-filter 0.3s ease, background-color 0.3s ease;
+}
+
+@supports not (backdrop-filter: blur(5px)) {
+  .modal-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 8px;
+  /* padding: 24px; */
+  width: 90%;
+  max-width: 560px;
+  z-index: 1001;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+.modal-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #E5E7EB;
+  padding: 16px;
+  }
+
+.modal-close {
+  padding: 4px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  top: 14px;
+  right: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6B7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-title {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #111827;
+  margin-top: 0;
+  
+  margin-bottom: 0;
+}
+
+.modal-form .form-group {
+  /* margin-bottom: 16px; */
+  padding: 16px;
+}
+
+.modal-form label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.modal-form .required {
+  color: #DC2626;
+}
+
+.modal-form input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #D1D5DB;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #111827;
+}
+
+.modal-form input:focus {
+  outline: none;
+  border-color: #2D388A;
+  box-shadow: 0 0 0 2px rgba(45, 56, 138, 0.1);
+}
+
+.modal-form input::placeholder {
+  color: #9CA3AF;
+}
+
+.modal-form .download-btn {
+  padding: 12px 24px;
+  border-radius: 6px;
+  background-color: rgba(43, 57, 144, 0.12);
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.modal-form .download-btn:hover {
+  background-color: #1E2A6B;
+}
+
+/* Active modal states */
+.modal.active,
+.modal-overlay.active {
+  display: block;
+}
+.download-btn-wrapper{
+  padding: 16px;
+  border-top: 1px solid #E5E7EB;
+  display: flex;
+  justify-content: end;
+}
+
+/* Modal Animation */
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translate(-50%, -60%); }
+  to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.modal.active {
+  animation: modalFadeIn 0.3s forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+
+}
+
+/* Quote Modal Styles */
+#quote-modal {
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#quote-modal .modal-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid #F3F4F6;
+}
+
+#quote-modal .modal-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#quote-modal .modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6B7280;
+}
+
+
+#quote-modal input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #111827;
+}
+
+#quote-modal input::placeholder {
+  color: #9CA3AF;
+}
+
+#quote-modal .phone-input-container {
+  display: flex;
+  /* gap: 8px; */
+  padding: 16px;
+}
+
+#quote-modal .country-code-wrapper {
+  position: relative;
+  width: 95px;
+  flex-shrink: 0;
+}
+
+#quote-modal .country-code {
+  width: 100%;
+  padding: 16px 35px 16px 16px;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px 0 0 8px;
+  font-size: 16px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+#quote-modal .code-dropdown-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+#quote-modal #phoneNumber {
+  flex-grow: 1;
+  border-radius: 0 8px 8px 0;
+}
+
+
+.form-btn-wrapper{
+  display: flex;
+  justify-content: flex-end; 
+  border-top: 1px solid #E5E7EB;
+  padding: 16px;
+}
+#quote-modal .submit-btn {
+  padding: 12px 24px;
+  border-radius: 6px;
+  background-color: rgba(43, 57, 144, 0.12);
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+#quote-modal .submit-btn:hover {
+  background-color: #1E2A6B;
+}
+
+/* Enhancement for both modals */
+.modal {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  max-width: 480px;
+}
+
+.modal-overlay {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+@media (max-width: 520px) {
+  #quote-modal,
+  #brochure-modal {
+    width: 90%;
+  }
+  
+  #quote-modal .modal-title {
+    font-size: 18px;
   }
 }
