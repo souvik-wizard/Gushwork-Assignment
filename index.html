@@ -17,6 +17,11 @@
         <a href="#" class="logo" aria-label="Mangalam HDPE Pipes">
           <img src="assets/images/Logo.png" alt="Mangalam HDPE Pipes Logo">
         </a>
+              <div class="hamburger-toggle" aria-label="Toggle mobile menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
         <div class="nav-links-container">
           <ul class="nav-links">
             <li><a href="#about">About Us</a></li>
@@ -116,7 +121,7 @@
             <div class="zoom-preview"></div>
           </div>
           <button class="carousel-arrow right" aria-label="Next image">
-            <img src="assets/svgs/Arrow right.svg" alt="Next">
+            <img src="assets/svgs/Arrow Right.svg" alt="Next">
           </button>
         </div>
           <div class="carousel-thumbnails">
@@ -151,7 +156,7 @@
             <div class="zoom-preview"></div>
           </div>
           <button class="carousel-arrow right" aria-label="Next image">
-            <img src="assets/svgs/Arrow right.svg" alt="Next">
+            <img src="assets/svgs/Arrow Right.svg" alt="Next">
           </button>
         </div>
           <div class="carousel-thumbnails">
@@ -359,7 +364,7 @@
               <img src="assets/svgs/Arrow Left.svg" alt="Previous">
             </button>
             <button class="applications-arrow next" aria-label="Next applications">
-              <img src="assets/svgs/Arrow right.svg" alt="Next">
+              <img src="assets/svgs/Arrow Right.svg" alt="Next">
             </button>
           </div>
         </div>
@@ -438,7 +443,8 @@
           <p class="process-subheading">Our state-of-the-art extrusion technology ensures consistent quality, optimal material properties, and dimensional accuracy in every pipe we manufacture.</p>
         </div>
 
-        <div class="process-content">
+        <!-- Desktop/Tablet Process Display -->
+        <div class="process-content desktop-process">
           <div class="process-tabs">
             <img src="assets/svgs/ProcessLine.svg" alt="Process" class="process-line">
             <button class="process-tab active" data-tab="raw-material">Raw Material</button>
@@ -532,12 +538,44 @@
                   <img src="assets/svgs/Arrow Left.svg" alt="Previous">
                 </button>
                 <button class="process-image-arrow next" aria-label="Next image">
-                  <img src="assets/svgs/Arrow right.svg" alt="Next">
+                  <img src="assets/svgs/Arrow Right.svg" alt="Next">
                 </button>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Mobile Process Display -->
+        <div class="process-content mobile-process">
+      <div class="mobile-process-step">
+        <div class="mobile-process-header">
+          <span class="mobile-step-indicator">Step <span class="step-current">1</span>/<span class="step-total">8</span>: <span class="step-name">Raw Material</span></span>
+        </div>
+        
+        <div class="mobile-process-content-wrapper">
+          <h3 class="process-title">High-Grade Raw Material Selection</h3>
+          <p class="process-description">Vacuum sizing tanks ensure precise outer diameter while internal pressure maintains perfect roundness and wall thickness uniformity.</p>
+          <ul class="process-features">
+            <li><img src="assets/svgs/CheckCircle.svg" alt="Check"> PE100 grade material</li>
+            <li><img src="assets/svgs/CheckCircle.svg" alt="Check"> Optimal molecular weight distribution</li>
+          </ul>
+          
+          <div class="mobile-process-image">
+            <img src="assets/images/hero-main.jpg" alt="Raw Material Process">
+          </div>
+          
+          <div class="mobile-process-navigation">
+            <img src="assets/svgs/Process Line Mobile.svg" alt="Process Line" class="mobile-process-line">
+            <button class="mobile-process-nav prev" aria-label="Previous step">
+              <img src="assets/svgs/Arrow Left.svg" alt="Previous"> Previous
+            </button>
+            <button class="mobile-process-nav next" aria-label="Next step">
+              Next <img src="assets/svgs/Arrow Right.svg" alt="Next">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
       </div>
     </section>
 

@@ -828,3 +828,255 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// Process Tab Scrolling for Mobile
+document.addEventListener("DOMContentLoaded", function () {
+  const processTabs = document.querySelector(".process-tabs");
+
+  if (processTabs) {
+    // Scroll active tab into view on page load
+    const activeTab = processTabs.querySelector(".process-tab.active");
+    if (activeTab && window.innerWidth <= 1023) {
+      setTimeout(() => {
+        activeTab.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+      }, 300);
+    }
+
+    // Add click handler for process tabs that scrolls the clicked tab into center view
+    const allProcessTabs = processTabs.querySelectorAll(".process-tab");
+    allProcessTabs.forEach((tab) => {
+      tab.addEventListener("click", function () {
+        if (window.innerWidth <= 1023) {
+          setTimeout(() => {
+            this.scrollIntoView({
+              behavior: "smooth",
+              block: "nearest",
+              inline: "center",
+            });
+          }, 10);
+        }
+      });
+    });
+  }
+
+  // Add responsive image loading for process tab content
+  const processImages = document.querySelectorAll(".process-image");
+
+  function updateProcessImageForMobile() {
+    const activeTabId = document
+      .querySelector(".process-tab.active")
+      .getAttribute("data-tab");
+    const activeTabIndex = Array.from(processTabs).findIndex(
+      (tab) => tab.getAttribute("data-tab") === activeTabId
+    );
+
+    if (activeTabIndex >= 0) {
+      processImages.forEach((img, idx) => {
+        img.classList.remove("active");
+        if (idx === activeTabIndex && idx < processImages.length) {
+          img.classList.add("active");
+        }
+      });
+    }
+  }
+
+  // Update images when tab is clicked (for mobile)
+  processTabs.forEach((tab) => {
+    tab.addEventListener("click", function () {
+      if (window.innerWidth <= 1023) {
+        updateProcessImageForMobile();
+      }
+    });
+  });
+
+  // Initialize on load
+  if (window.innerWidth <= 1023) {
+    updateProcessImageForMobile();
+  }
+});
+
+// Mobile Process Navigation
+document.addEventListener("DOMContentLoaded", function () {
+  // Process steps data
+  const processSteps = [
+    {
+      id: "raw-material",
+      name: "Raw Material",
+      title: "High-Grade Raw Material Selection",
+      description:
+        "Vacuum sizing tanks ensure precise outer diameter while internal pressure maintains perfect roundness and wall thickness uniformity.",
+      features: [
+        "PE100 grade material",
+        "Optimal molecular weight distribution",
+      ],
+      image: "assets/images/hero-main.jpg",
+    },
+    {
+      id: "extrusion",
+      name: "Extrusion",
+      title: "Precision Extrusion Technology",
+      description:
+        "Advanced extrusion systems ensure consistent material flow and optimal temperature control throughout the manufacturing process.",
+      features: [
+        "Temperature controlled extrusion",
+        "Consistent material distribution",
+      ],
+      image: "assets/images/hero-main.jpg",
+    },
+    {
+      id: "cooling",
+      name: "Cooling",
+      title: "Controlled Cooling Process",
+      description:
+        "Systematic cooling ensures proper material crystallization and dimensional stability of the manufactured pipes.",
+      features: ["Controlled cooling rate", "Optimal crystallization"],
+      image: "assets/images/hero-main.jpg",
+    },
+    {
+      id: "sizing",
+      name: "Sizing",
+      title: "Precision Sizing Control",
+      description:
+        "Vacuum sizing tanks ensure precise outer diameter while internal pressure maintains perfect roundness and wall thickness uniformity.",
+      features: ["Precise diameter control", "Uniform wall thickness"],
+      image: "assets/images/hero-main.jpg",
+    },
+    {
+      id: "quality-control",
+      name: "Quality Control",
+      title: "Comprehensive Quality Control",
+      description:
+        "Rigorous testing and inspection processes ensure every pipe meets international standards and quality requirements.",
+      features: ["Automated testing systems", "ISO compliance verification"],
+      image: "assets/images/hero-main.jpg",
+    },
+    {
+      id: "marking",
+      name: "Marking",
+      title: "Professional Marking System",
+      description:
+        "Clear and permanent marking ensures traceability and proper identification of specifications and standards.",
+      features: ["Permanent marking", "Full traceability"],
+      image: "assets/images/hero-main.jpg",
+    },
+    {
+      id: "cutting",
+      name: "Cutting",
+      title: "Precision Cutting Technology",
+      description:
+        "Automated cutting systems ensure accurate lengths and clean cuts for optimal joint performance.",
+      features: ["Automated cutting", "Precise length control"],
+      image: "assets/images/hero-main.jpg",
+    },
+    {
+      id: "packaging",
+      name: "Packaging",
+      title: "Secure Packaging Solutions",
+      description:
+        "Professional packaging ensures safe transport and storage while maintaining product integrity.",
+      features: ["Protective packaging", "Transport optimization"],
+      image: "assets/images/hero-main.jpg",
+    },
+  ];
+
+  // Mobile process navigation
+  const mobileProcess = document.querySelector(".mobile-process");
+  if (mobileProcess) {
+    let currentStepIndex = 0;
+    const totalSteps = processSteps.length;
+
+    const stepCurrent = mobileProcess.querySelector(".step-current");
+    const stepTotal = mobileProcess.querySelector(".step-total");
+    const stepName = mobileProcess.querySelector(".step-name");
+    const processTitle = mobileProcess.querySelector(".process-title");
+    const processDescription = mobileProcess.querySelector(
+      ".process-description"
+    );
+    const processFeatures = mobileProcess.querySelector(".process-features");
+    const processImage = mobileProcess.querySelector(
+      ".mobile-process-image img"
+    );
+
+    const prevBtn = mobileProcess.querySelector(".mobile-process-nav.prev");
+    const nextBtn = mobileProcess.querySelector(".mobile-process-nav.next");
+
+    // Initialize step counter
+    stepTotal.textContent = totalSteps.toString();
+
+    // Update mobile process content
+    function updateMobileProcess(index) {
+      const step = processSteps[index];
+
+      // Update step indicator
+      stepCurrent.textContent = (index + 1).toString();
+      stepName.textContent = step.name;
+
+      // Update content
+      processTitle.textContent = step.title;
+      processDescription.textContent = step.description;
+
+      // Update features
+      processFeatures.innerHTML = "";
+      step.features.forEach((feature) => {
+        const li = document.createElement("li");
+        li.innerHTML = `<img src="assets/svgs/CheckCircle.svg" alt="Check"> ${feature}`;
+        processFeatures.appendChild(li);
+      });
+
+      // Update image
+      processImage.src = step.image;
+      processImage.alt = `${step.name} Process`;
+
+      // Update button states
+      prevBtn.disabled = index === 0;
+      // prevBtn.style.visibility = index === 0 ? "hidden" : "visible";
+      nextBtn.disabled = index === totalSteps - 1;
+      // nextBtn.textContent = index === totalSteps - 1 ? "Finish" : "Next";
+      // nextBtn.querySelector("img").style.display =
+      //   index === totalSteps - 1 ? "none" : "inline";
+
+      // Apply fade transition
+      mobileProcess.querySelector(
+        ".mobile-process-content-wrapper"
+      ).style.opacity = "0";
+      setTimeout(() => {
+        mobileProcess.querySelector(
+          ".mobile-process-content-wrapper"
+        ).style.opacity = "1";
+      }, 50);
+    }
+
+    // Event listeners for navigation buttons
+    prevBtn.addEventListener("click", () => {
+      if (currentStepIndex > 0) {
+        currentStepIndex--;
+        updateMobileProcess(currentStepIndex);
+      }
+    });
+
+    nextBtn.addEventListener("click", () => {
+      if (currentStepIndex < totalSteps - 1) {
+        currentStepIndex++;
+        updateMobileProcess(currentStepIndex);
+      }
+    });
+
+    // Initialize with first step
+    updateMobileProcess(currentStepIndex);
+
+    // Sync mobile and desktop tabs
+    const desktopTabs = document.querySelectorAll(".process-tab");
+    desktopTabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => {
+        if (window.innerWidth <= 767) {
+          currentStepIndex = index;
+          updateMobileProcess(currentStepIndex);
+        }
+      });
+    });
+  }
+});
